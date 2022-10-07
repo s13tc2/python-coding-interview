@@ -2,6 +2,9 @@
 
 # If the total number of nodes in the LinkedList is even, return the second middle node.
 
+# Input: 1 -> 2 -> 3 -> 4 -> 5 -> null
+# Output: 3
+
 
 class Node:
     def __init__(self, value):
@@ -9,6 +12,7 @@ class Node:
         self.next = None
 
 
+# O(N) time | O(1) space
 def find_middle_of_linked_list(head):
     slow, fast = head, head
     while fast and fast.next:
