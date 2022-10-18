@@ -1,4 +1,4 @@
-# Given the head of a LinkedList and a number ‘k’, reverse every ‘k’ sized sub-list starting from the head.
+# Given the head of a LinkedList and a number ‘k’, reverse every alternating ‘k’ sized sub-list starting from the head.
 
 # If, in the end, you are left with a sub-list with less than ‘k’ elements, reverse it too.
 
@@ -17,9 +17,9 @@ class Node:
 
 
 # O(n) time | O(1) space
-def reverse_every_k_elements(head, k):
+def reverse_alternate_k_elements(head, k):
     prev, curr = None, head
-    while True:
+    while curr:
         last_node_of_first_part = prev
         last_node_of_sublist = curr
         i = 0
@@ -34,9 +34,11 @@ def reverse_every_k_elements(head, k):
             head = prev
 
         last_node_of_sublist.next = curr
-        if not curr:
-            break
-        prev = last_node_of_sublist
+        i = 0
+        while curr and i < k:
+            prev, curr = curr, curr.next
+            i += 1
+
     return head
 
 
@@ -52,6 +54,6 @@ if __name__ == "__main__":
 
     print("Nodes of original LinkedList are: ", end="")
     head.print_list()
-    result = reverse_every_k_elements(head, 3)
+    result = reverse_alternate_k_elements(head, 2)
     print("Nodes of reversed LinkedList are: ", end="")
     result.print_list()
