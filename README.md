@@ -5,6 +5,7 @@ This repository contains solutions to [Grokking the Coding Interview: Patterns f
 ## Topics Covered
 
 - Sliding Window
+- Islands (Matrix Traversal)
 - Two Pointer
 - Fast & Slow Pointers
 - Merge Intervals
