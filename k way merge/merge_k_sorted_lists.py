@@ -1,14 +1,40 @@
 # Given an array of ‘K’ sorted LinkedLists, merge them into one sorted list.
 
+from heapq import *
+
 
 class ListNode:
     def __init__(self, value):
         self.value = value
         self.next = None
 
+    def __lt__(self, other):
+        return self.value < other.value
+
+
+def merge_lists(lists):
+    min_heap = []
+    for root in lists:
+        if root is not None:
+            heappush(min_heap, root)
+
+    resultHead, resultTail = None, None
+    while min_heap:
+        node = heappop(min_heap)
+        if resultHead is None:
+            resultHead = resultTail = node
+        else:
+            resultTail.next = node
+            resultTail = resultTail.next
+
+        if node.next is not None:
+            heappush(min_heap, node.next)
+
+    return resultHead
+
 
 # O(nlog(k)) time | O(1) space
-def merge_lists(lists):
+def merge_lists_optimal(lists):
     amount = len(lists)
     interval = 1
     while interval < amount:
