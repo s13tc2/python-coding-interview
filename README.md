@@ -21,4 +21,4 @@ This repository contains solutions to [Grokking the Coding Interview: Patterns f
 - K-way Merge
 - 0/1 Knapsack (Dynamic Programming)
 - Topological Sort (Graph)
-- Misc.
+- Kth Smallest Numbers
